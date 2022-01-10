@@ -38,3 +38,7 @@ class AdditionalValidationSets(K.callbacks.Callback):
 #                                        save_weights_only=True,
 #                                        verbose=1,
 #                                        save_best_only=False)    
+    
+    
+
+

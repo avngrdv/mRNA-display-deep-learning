@@ -8,6 +8,21 @@ Created on Sat Feb  1 20:16:25 2020
 import numpy as np
 import tensorflow.keras as K
 
+
+# def EarlyStop(monitor='val_loss', min_delta=0.00001, patience=8, verbose=1):
+#     return K.callbacks.EarlyStopping(monitor=monitor, min_delta=min_delta, 
+#                                      patience=patience, verbose=verbose)
+
+# def Checkpoint(filepath=None,
+#                monitor='val_loss', save_weights_only=True, verbose=1, save_best_only=False):
+
+#     return K.callbacks.ModelCheckpoint(filepath=filepath,
+#                                        monitor='val_loss',
+#                                        save_weights_only=True,
+#                                        verbose=1,
+#                                        save_best_only=False)    
+
+
 class AdditionalValidationSets(K.callbacks.Callback):
     def __init__(self, validation_sets, verbose=0):
 
@@ -25,16 +40,7 @@ class AdditionalValidationSets(K.callbacks.Callback):
         print('Validation set PCC:', np.round(pcc[0, 1], 4))       
         logs['PCC'] = pcc[0, 1]
                     
+    
+    
 
-# def EarlyStop(monitor='val_loss', min_delta=0.00001, patience=8, verbose=1):
-#     return K.callbacks.EarlyStopping(monitor=monitor, min_delta=min_delta, 
-#                                      patience=patience, verbose=verbose)
 
-# def Checkpoint(filepath=None,
-#                monitor='val_loss', save_weights_only=True, verbose=1, save_best_only=False):
-
-#     return K.callbacks.ModelCheckpoint(filepath=filepath,
-#                                        monitor='val_loss',
-#                                        save_weights_only=True,
-#                                        verbose=1,
-#                                        save_best_only=False)    
