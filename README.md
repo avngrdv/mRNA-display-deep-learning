@@ -32,3 +32,7 @@ seaborn 0.11.1
 ## Usage examples
 
 An example of building a LazDEF substrate preference model from NGS data can be found in a jupyter notebook ./code/LazDEF_model_training_walkthrough.ipynb
+
+## License
+
+The code is released under the GNU General Public License v3.0 without any explicit or implied warranty. Use it at your own discretion.
