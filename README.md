@@ -35,4 +35,4 @@ An example of building a LazDEF substrate preference model from NGS data can be 
 
 ## License
 
-The code is released under the GNU General Public License v3.0 without any explicit or implied warranty. Use it at your own discretion.
+_The code is released under the GNU General Public License v3.0 without any explicit or implied warranty. Use it at your own discretion._
