@@ -31,4 +31,4 @@ seaborn 0.11.1
 
 ## Usage examples
 
-An example of building a LazDEF substrate preference model from NGS data can be found in a jupyter notebook ./code/LazDEF_model_training_walkthrough.ipynb)
+An example of building a LazDEF substrate preference model from NGS data can be found in a jupyter notebook ./code/LazDEF_model_training_walkthrough.ipynb
