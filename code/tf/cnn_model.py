@@ -84,3 +84,34 @@ def cnn_v5(inp_dim=None, drop=0.05):
                         drop=drop)
 
     return K.Model(inputs=inp, outputs=out)
+    
+    
+def cnn_v6(inp_dim=None, drop=0.05):
+ 
+    inp = K.layers.Input(shape=inp_dim)  
+    
+    x = regular_fork(inp, 
+                     n_in=256, 
+                     size=3,  
+                     drop=drop)
+    
+    x = dilated_fork(x, n_in=256,
+                     size=3, 
+                     base_rate=2,
+                     drop=drop)
+    
+    x = regular_fork(x, 
+                     n_in=256, 
+                     size=4,
+                     drop=drop)
+    
+    x = dilated_fork(x, n_in=256,
+                     size=4, 
+                     base_rate=2,
+                     drop=drop)
+
+    out = summary_block(x, 
+                        size=512, 
+                        drop=drop)
+
+    return K.Model(inputs=inp, outputs=out)

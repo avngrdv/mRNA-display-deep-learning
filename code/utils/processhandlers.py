@@ -2229,3 +2229,34 @@ class DataPreprocessor(Handler):
             return data
         return drop_dataset
     
+    def x_expand_and_shift(self, new_x_dim=None):
+        '''
+        Randomly pad each row such that the new vector size becomes
+        equal to new_x_dim
+    
+        Parameters:
+                new_x_dim: int. The dimension of the expanded vectors
+                                  
+        Returns:
+                Transformed Data object
+        ''' 
+        
+        def x_expand_and_shift(data):
+            for sample in data:
+                
+                arr = sample.X
+                dtype = arr.dtype
+                pad = np.zeros(1, dtype=x.dtype).item()
+        
+                expanded_arr = np.zeros((arr.shape[0], new_x_dim), dtype=dtype)
+                expanded_arr[:,:arr.shape[1]] = arr
+                    
+                L = np.sum(arr != pad, axis=1)
+                max_randint = new_x_dim - L + 1
+                shift_ind = np.random.randint(0, high=max_randint, size=arr.shape[0])
+                idx = np.mod(np.arange(new_x_dim) - shift_ind[:,None], new_x_dim)
+
+                sample.X = expanded_arr[np.arange(expanded_arr.shape[0])[:,None], idx]
+        
+            return data
+        return x_expand_and_shift   
